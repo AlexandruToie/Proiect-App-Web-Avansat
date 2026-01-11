@@ -1,0 +1,9 @@
+Options -MultiViews
+RewriteEngine On
+
+# Dacă fișierul sau folderul există fizic (ex: o poză, un css), lasă-l să treacă
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Orice altceva trimite către index.php
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
